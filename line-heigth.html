@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <div class="content"></div>
+        <div class="content">Gg</div>
+    </div>
+
+    <style>
+
+
+    .box {
+        border: 1px solid red;
+        position: relative;
+        font-size: 40px;
+    }
+    .content {
+        border: 1px solid #aaa;
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+    }
+    
+    .line {
+        border-top: 1px solid #aaa;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 100%;
+        height: 0;
+    }
+    .box::after {
+        content: 'Xx';
+        display: inline-block;
+    }
+    
+    img{ 
+        display: inline-block;
+        height: 200px
+    }
+    .m-10 {
+        margin: 10px 0;
+    }
+    </style>
+    <!-- 
+        规则1：inline-block元素，如果内部有line box，则inline-block元素的baseline就是最后一个作为内容存在的元素[inline box]的baseline，而这个元素的baseline的确定就要根据它自身来定了。
+        规则2：inline-block元素，如果其内部没有line box或它的overflow属性不是visible，那么baseline将是这个inline-block元素的底margin边界。
+     -->
+
+    <img src="./img/img1.png" alt="">
+    <p>top</p>
+    <div class="box">
+        <div class="content m-10"></div>
+        <div class="content top"></div>
+    </div>
+    <div class="box">
+        <div class="content"></div>
+        <div class="content top">Gg</div>
+    </div>
+    <p>text-top</p>
+    <div class="box">
+        <div class="content m-10"></div>
+        <div class="content text-top"></div>
+    </div>
+    <p>bottom</p>
+    <div class="box">
+        <div class="content m-10"></div>
+        <div class="content bottom"></div>
+    </div>
+    <p>text-bottom</p>
+    <div class="box">
+        <div class="content m-10"></div>
+        <div class="content text-bottom"></div>
+    </div>
+    <div class="box">
+        <div class="content "></div>
+        <div class="content bottom">Gg</div>
+    </div>
+    <p>middle</p>
+    <div class="box">
+        <div class="line"></div>
+        <div class="content middle"></div>
+    </div>
+<style>
+    /* inline inline-block table-cell  图片,按钮,文字,单元格*/
+    /* baseline | sub | super | top | text-top | middle | bottom | text-bottom | <percentage> | <length> | inherit */
+    
+    .top{
+        /* 子元素盒子的顶部相对行盒子的顶部对齐 */
+        vertical-align: top;
+    }
+    .bottom{
+        /* 子元素盒子的底部和行盒子的底部对齐 */
+        vertical-align: bottom;
+    }
+    .middle{
+        /* 让子元素盒子垂直中点与行盒子的baseline+字母‘x'高度的一半对齐 */
+        vertical-align: middle;
+    }
+    .text-top{
+        /* 子元素盒子的顶部和行盒子里文本区域顶端的顶部对齐 */
+        vertical-align: text-top;
+    }
+    .text-bottom{
+        /* 子元素盒子的底部和行盒子里文本区域的底部对齐 */
+        vertical-align: text-bottom;
+    }
+</style>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" alt="">
+
+    <div class="box">
+        <img class="img" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" alt="">
+    </div>
+
+    <div class="box">
+        <div class="content con"></div>
+        <div class="content cover"></div>
+    </div>
+    
+    <div class="box">
+        <img class="img fill" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" alt="">
+        <img class="img contain" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" alt="">
+        <img class="img cover" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" alt="">
+        <img class="img none" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" alt="">
+        <img class="img scale-down" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" alt="">
+    </div>
+<style>
+    .box {
+        display: flex;
+        height: 300px;
+    }
+    .content {
+        border: 1px solid #aaa;
+        width: 200px;
+        height: 200px;
+        margin-right: 10px;
+        background: url('https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg') no-repeat center
+    }
+    .con{
+        background-size: contain
+    }
+    .cover{
+        background-size: cover
+    }
+
+    .img {
+        width: 200px;
+        height: 200px;
+        margin-right: 10px;
+    }
+    .fill {
+        /* 拉伸 填充内容框 */
+        object-fit: fill;
+    }
+    .contain {
+        /* 保持比例 适应最小边 */
+        object-fit: contain; 
+    }
+    .cover {
+        /* 保持比例 适应最大边 */
+        object-fit: cover;
+    }
+    .none {
+        /* 不调整大小 */
+        object-fit: none;
+    }
+    .scale-down {
+        /*  none 或 contain 中更小的那一个 */
+        object-fit: scale-down;
+    }
+</style>
+</body>
+</html>
